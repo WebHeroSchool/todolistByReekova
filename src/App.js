@@ -1,6 +1,8 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { count } from './number';
+import { length } from './number';
 
 const name = 'Maria Reekova';
 const weather = true;
@@ -17,6 +19,7 @@ function App() {
         <div>{name}</div>
         <div> Age {30} </div>
         <div> Sum {10 + 5} </div>
+        <div>"count * length = { count * length }"</div>
         <p>
           {undefined}
           {null}
