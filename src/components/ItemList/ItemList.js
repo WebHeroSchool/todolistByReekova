@@ -1,10 +1,11 @@
 import React from 'react';
 import Item from '../Item/Item';
 
-const ItemList = () => (<ul>
-  <li><Item /></li>
-  <li><Item /></li>
-  <li><Item /></li>
+const ItemList = ({tasks}) => (<ul>
+  <li><Item todo={tasks[0]} /></li>
+  <li><Item todo={tasks[1]} /></li>
+  <li><Item todo={tasks[2]} /></li>
+  <li><Item todo={tasks[3]} /></li>
 </ul>);
 
 export default ItemList;
