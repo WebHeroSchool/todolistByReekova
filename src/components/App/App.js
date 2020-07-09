@@ -4,26 +4,33 @@ import Footer from '../Footer';
 import InputItem from '../InputItem';
 import styles from './App.module.css';
 
-const tasks = [
-  {
-    value: 'Сделать зарядку'
-  },
-  {
-    value: 'Погулять с собакой'
-  },
-  {
-    value: 'Приготовить завтрак'
-  },
-  {
-    value: 'Работать-работать-работать'
-  }
-];
+const App = () => {
+  const tasks = [
+    {
+      value: 'Сделать зарядку',
+      isDone: true
+    },
+    {
+      value: 'Погулять с собакой',
+      isDone: true
+    },
+    {
+      value: 'Приготовить завтрак',
+      isDone: true
+    },
+    {
+      value: 'Работать-работать-работать',
+      isDone: false
+    }
+  ];
 
-const App = () => (<div className={styles.wrap}>
-  <h1 className={styles.title}>Важные дела</h1>
-  <InputItem />
-  <ItemList tasks={tasks}/>
-  <Footer count={tasks.length}/>
-</div>);
+  return (
+    <div className={styles.wrap}>
+      <h1 className={styles.title}>Важные дела</h1>
+      <InputItem />
+      <ItemList tasks={tasks}/>
+      <Footer count={tasks.length}/>
+    </div>);
+}
 
 export default App;
