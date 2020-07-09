@@ -1,7 +1,7 @@
 import React from 'react';
-import ItemList from '../ItemList/ItemList';
-import Footer from '../Footer/Footer';
-import InputItem from '../InputItem/InputItem';
+import ItemList from '../ItemList';
+import Footer from '../Footer';
+import InputItem from '../InputItem';
 
 const App = () => (<div>
   <h1>Важные дела</h1>
