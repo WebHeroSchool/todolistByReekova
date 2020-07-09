@@ -1,10 +1,14 @@
 .wrap {
   margin: auto;
-  width: 400px;
+  width: 500px;
+  background-color: #F08080;
+  border: 6px double #008080;
 }
 
 .title {
   font-family: Helvetica;
-  color: #DC143C;
-  text-align: center;
+  color: #008080;
+  padding-left: 10px;
+  margin-top: 10px;
+  letter-spacing: 1px;
 }

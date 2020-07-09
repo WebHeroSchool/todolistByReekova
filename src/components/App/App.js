@@ -8,7 +8,7 @@ const App = () => {
   const tasks = [
     {
       value: 'Сделать зарядку',
-      isDone: true
+      isDone: false
     },
     {
       value: 'Погулять с собакой',

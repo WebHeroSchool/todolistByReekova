@@ -1,9 +1,7 @@
 .item {
-  color: red;
   font-weight: bold;
 }
 
 .done {
-  color: green;
   text-decoration: line-through;
 }
