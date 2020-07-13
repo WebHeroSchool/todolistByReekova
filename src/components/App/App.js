@@ -11,22 +11,26 @@ class App extends React.Component {
       {
         value: 'Сделать зарядку',
         isDone: true,
-        id: 1
+        id: 1,
+        isDeleted: false
       },
       {
         value: 'Погулять с собакой',
         isDone: false,
-        id: 2
+        id: 2,
+        isDeleted: false
       },
       {
         value: 'Приготовить завтрак',
         isDone: false,
-        id: 3
+        id: 3,
+        isDeleted: false
       },
       {
         value: 'Работать-работать-работать',
         isDone: true,
-        id: 4
+        id: 4,
+        isDeleted: false
       }
     ]
   };
@@ -42,12 +46,15 @@ class App extends React.Component {
     this.setState({ tasks: NewTasksList });
   };
 
+  onClickDelete = id => {this.setState(state => ({tasks: state.tasks.filter(task => task.id !== id)}))};
+
+
   render() {
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>Важные дела</h1>
         <InputItem />
-        <ItemList tasks={this.state.tasks} onClickDone={this.onClickDone}/>
+        <ItemList tasks={this.state.tasks} onClickDone={this.onClickDone} onClickDelete={this.onClickDelete}/>
         <Footer count={this.state.tasks.length}/>
       </div>);
   }
