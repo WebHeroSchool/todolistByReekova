@@ -7,7 +7,7 @@ import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 
 const ItemList = ({ tasks, isDone, onClickDone, id, onClickDelete, isDeleted }) => (<ul className={styles.container}>{tasks.map(task =>
-  <li className={styles.list} key={task.value}>
+  <li className={styles.list} key={task.id}>
   <FormControlLabel
        control={
          <Checkbox

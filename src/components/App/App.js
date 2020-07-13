@@ -35,7 +35,7 @@ class App extends React.Component {
     ]
   };
 
-  onClickDone = (id) => {
+  onClickDone = id => {
     const NewTasksList = this.state.tasks.map(task => {
       const newTask = { ...task };
       if (task.id === id) {
@@ -48,12 +48,23 @@ class App extends React.Component {
 
   onClickDelete = id => {this.setState(state => ({tasks: state.tasks.filter(task => task.id !== id)}))};
 
+  onClickAdd = value => this.setState(state => ({
+    tasks: [
+      ...state.tasks,
+      {value,
+      isDone: false,
+      isDeleted: false,
+      id: state.tasks.length + 1
+      }
+    ],
+  }));
+
 
   render() {
     return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>Важные дела</h1>
-        <InputItem />
+        <InputItem onClickAdd={this.onClickAdd}/>
         <ItemList tasks={this.state.tasks} onClickDone={this.onClickDone} onClickDelete={this.onClickDelete}/>
         <Footer count={this.state.tasks.length}/>
       </div>);
