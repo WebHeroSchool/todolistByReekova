@@ -1,0 +1,11 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+.list {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  width: 390px;
+  align-items: center;
+}
