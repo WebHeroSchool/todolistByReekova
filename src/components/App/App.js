@@ -1,4 +1,5 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 import ItemList from '../ItemList';
 import Footer from '../Footer';
 import InputItem from '../InputItem';
@@ -66,4 +67,9 @@ class App extends React.Component {
   }
 }
 
+App.propTypes = {
+  tasks: Proptypes.array.isRequired,
+  isDone: Proptypes.bool.isRequired,
+  id: Proptypes.number.isRequired
+}
 export default App;
