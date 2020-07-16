@@ -3,14 +3,32 @@ import Proptypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './Item.module.css';
 
-const Item = ({ value, isDone }) => (<span className={
-  classnames({
-    [styles.item]: true,
-    [styles.done]: isDone
-  })
-}>
-{value}
-</span>);
+class Item extends React.Component {
+  componentDidMount(){
+    console.log('componentDidMount');
+  }
+
+  componentDidUpdate(){
+    console.log('componentDidUpdate');
+  }
+
+  componentWillUnmount(){
+    console.log('componentWillUnmount');
+  }
+
+  render() {
+    const { value, isDone } = this.props;
+
+    return(<span className={
+      classnames({
+        [styles.item]: true,
+        [styles.done]: isDone
+      })
+    }>
+    {value}
+    </span>);
+  }
+}
 
 Item.defaultProps = {
   isDone: false
