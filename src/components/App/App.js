@@ -11,26 +11,22 @@ class App extends React.Component {
       {
         value: 'Сделать зарядку',
         isDone: true,
-        id: 1,
-        isDeleted: false
+        id: 1
       },
       {
         value: 'Погулять с собакой',
         isDone: false,
-        id: 2,
-        isDeleted: false
+        id: 2
       },
       {
         value: 'Приготовить завтрак',
         isDone: false,
-        id: 3,
-        isDeleted: false
+        id: 3
       },
       {
         value: 'Работать-работать-работать',
         isDone: true,
-        id: 4,
-        isDeleted: false
+        id: 4
       }
     ]
   };

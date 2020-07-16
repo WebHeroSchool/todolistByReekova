@@ -6,7 +6,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 
-const ItemList = ({ tasks, isDone, onClickDone, id, onClickDelete, isDeleted }) => (<ul className={styles.container}>{tasks.map(task =>
+const ItemList = ({ tasks, isDone, onClickDone, id, onClickDelete }) => (<ul className={styles.container}>{tasks.map(task =>
   <li className={styles.list} key={task.value}>
   <FormControlLabel
        control={
@@ -16,9 +16,7 @@ const ItemList = ({ tasks, isDone, onClickDone, id, onClickDelete, isDeleted }) 
          />}
        label=<Item
        value={task.value}
-       isDone={task.isDone}
        id={task.id}
-       isDeleted={task.isDeleted}
        />
      />
   <DeleteOutlinedIcon
