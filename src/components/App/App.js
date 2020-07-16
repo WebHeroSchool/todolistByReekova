@@ -32,14 +32,14 @@ class App extends React.Component {
   };
 
   onClickDone = (id) => {
-    const NewTasksList = this.state.tasks.map(task => {
+    const newTasksList = this.state.tasks.map(task => {
       const newTask = { ...task };
       if (task.id === id) {
         newTask.isDone = !task.isDone;
       }
       return newTask;
     });
-    this.setState({ tasks: NewTasksList });
+    this.setState({ tasks: newTasksList });
   };
 
   render() {
