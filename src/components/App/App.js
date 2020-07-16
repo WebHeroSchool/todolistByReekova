@@ -11,39 +11,35 @@ class App extends React.Component {
       {
         value: 'Сделать зарядку',
         isDone: true,
-        id: 1,
-        isDeleted: false
+        id: 1
       },
       {
         value: 'Погулять с собакой',
         isDone: false,
-        id: 2,
-        isDeleted: false
+        id: 2
       },
       {
         value: 'Приготовить завтрак',
         isDone: false,
-        id: 3,
-        isDeleted: false
+        id: 3
       },
       {
         value: 'Работать-работать-работать',
         isDone: true,
-        id: 4,
-        isDeleted: false
+        id: 4
       }
     ]
   };
 
   onClickDone = id => {
-    const NewTasksList = this.state.tasks.map(task => {
+    const newTasksList = this.state.tasks.map(task => {
       const newTask = { ...task };
       if (task.id === id) {
         newTask.isDone = !task.isDone;
       }
       return newTask;
     });
-    this.setState({ tasks: NewTasksList });
+    this.setState({ tasks: newTasksList });
   };
 
   onClickDelete = id => {this.setState(state => ({tasks: state.tasks.filter(task => task.id !== id)}))};
@@ -53,7 +49,6 @@ class App extends React.Component {
       ...state.tasks,
       {value,
       isDone: false,
-      isDeleted: false,
       id: state.tasks.length + 1
       }
     ],
