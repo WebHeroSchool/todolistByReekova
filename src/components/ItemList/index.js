@@ -11,7 +11,7 @@ import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 class ItemList extends React.Component {
 
     render(){
-    const { tasks, isDone, onClickDone, id, onClickDelete } = this.props;
+    const { tasks, onClickDone, onClickDelete } = this.props;
 
     return(<ul className={styles.container}>{tasks.map(task =>
       <li className={styles.list} key={task.id}>
@@ -34,6 +34,12 @@ class ItemList extends React.Component {
     </ul>
   );
   }
+}
+
+ItemList.propTypes = {
+  tasks: Proptypes.array.isRequired,
+  onClickDone: Proptypes.func.isRequired,
+  onClickDelete: Proptypes.func.isRequired
 }
 
 export default ItemList;
