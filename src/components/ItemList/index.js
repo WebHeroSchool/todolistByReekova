@@ -7,7 +7,7 @@ import Checkbox from '@material-ui/core/Checkbox';
 import DeleteOutlinedIcon from '@material-ui/icons/DeleteOutlined';
 
 
-const ItemList = ({ tasks, isDone, onClickDone, id, onClickDelete }) => (<ul className={styles.container}>{tasks.map(task =>
+const ItemList = ({ tasks, onClickDone, onClickDelete }) => (<ul className={styles.container}>{tasks.map(task =>
   <li className={styles.list} key={task.id}>
   <FormControlLabel
        control={
@@ -26,5 +26,11 @@ const ItemList = ({ tasks, isDone, onClickDone, id, onClickDelete }) => (<ul cla
   />
   </li>)}
 </ul>);
+
+ItemList.propTypes = {
+  tasks: Proptypes.array.isRequired,
+  onClickDone: Proptypes.func.isRequired,
+  onClickDelete: Proptypes.func.isRequired
+}
 
 export default ItemList;
