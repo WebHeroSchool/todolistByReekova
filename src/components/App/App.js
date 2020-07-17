@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect  } from 'react';
 import ItemList from '../ItemList';
 import Footer from '../Footer';
 import InputItem from '../InputItem';
 import styles from './App.module.css';
 
 
-class App extends React.Component {
-  state = {
+const App = () => {
+  const initialState = {
     tasks: [
       {
         value: 'Сделать зарядку',
@@ -31,39 +31,52 @@ class App extends React.Component {
     ]
   };
 
-  onClickDone = id => {
-    const newTasksList = this.state.tasks.map(task => {
+  const [tasks, setTasks] = useState(initialState.tasks);
+
+  useEffect(() => {
+  		console.log('componentDidMount');
+  	}, []);
+
+  	useEffect(() => {
+  		console.log('componentDidUpdate');
+    });
+
+  const onClickDone = id => {
+    const newTasksList = tasks.map(task => {
       const newTask = { ...task };
       if (task.id === id) {
         newTask.isDone = !task.isDone;
       }
       return newTask;
     });
-    this.setState({ tasks: newTasksList });
+    setTasks(newTasksList);
   };
 
-  onClickDelete = id => {this.setState(state => ({tasks: state.tasks.filter(task => task.id !== id)}))};
+  const onClickDelete = id => {
+    const newTasksList = tasks.filter(task => task.id !== id)
+    setTasks(newTasksList);
 
-  onClickAdd = value => this.setState(state => ({
-    tasks: [
-      ...state.tasks,
-      {value,
-      isDone: false,
-      id: state.tasks.length + 1
+}
+  const onClickAdd = value => {
+    const newTasksList = [
+      ...tasks,
+      {
+        value,
+        isDone: false,
+        id: tasks.length + 1
       }
-    ],
-  }));
+    ];
+    setTasks(newTasksList);
+  };
 
-
-  render() {
-    return (
+  return (
       <div className={styles.wrap}>
         <h1 className={styles.title}>Важные дела</h1>
-        <InputItem onClickAdd={this.onClickAdd}/>
-        <ItemList tasks={this.state.tasks} onClickDone={this.onClickDone} onClickDelete={this.onClickDelete}/>
-        <Footer count={this.state.tasks.length}/>
-      </div>);
-  }
+        <InputItem onClickAdd={onClickAdd}/>
+        <ItemList tasks={tasks} onClickDone={onClickDone} onClickDelete={onClickDelete}/>
+        <Footer count={tasks.length}/>
+      </div>
+  );
 }
 
 export default App;
