@@ -18,7 +18,6 @@ const ItemList = ({ tasks, onClickDone, onClickDelete }) => (<ul className={styl
        label=<Item
        value={task.value}
        isDone={task.isDone}
-       id={task.id}
        />
      />
   <DeleteOutlinedIcon
