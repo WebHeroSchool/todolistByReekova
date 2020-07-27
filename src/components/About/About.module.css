@@ -1,0 +1,27 @@
+.wrapper {
+  width: 250px;
+  text-align: center;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border: 3px double #008080;
+}
+
+.login {
+  color: #f50057;
+}
+
+.title {
+  color: #008080;
+}
+
+.link {
+  color: black;
+}
+
+.list {
+  padding-bottom: 10px;
+  text-align: start;
+}
