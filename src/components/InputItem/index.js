@@ -16,7 +16,7 @@ class InputItem extends React.Component {
       this.setState({
       inputValue: ''
     });
-    this.props.onClickAdd(this.state.inputValue.toUpperCase());
+    this.props.onClickAdd(this.state.inputValue);
   } else {
     this.setState({
       helperText: "Обязательное поле для заполнения",
@@ -39,7 +39,7 @@ class InputItem extends React.Component {
               InputLabelProps={{
                 shrink: true,
               }}
-              value={this.state.inputValue.toUpperCase()}
+              value={this.state.inputValue}
               onChange={event => this.setState({
                 inputValue: event.target.value,
                 helperText: ''

@@ -1,12 +1,19 @@
 .wrapper {
-  width: 250px;
+  width: 450px;
   text-align: center;
+}
+
+.wrapper_inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 400px;
+  margin: 0 auto;
 }
 
 .avatar {
   width: 150px;
   height: 150px;
-  border: 3px double #008080;
 }
 
 .login {
@@ -24,4 +31,33 @@
 .list {
   padding-bottom: 10px;
   text-align: start;
+}
+
+.html {
+  color: #e34c26;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.css {
+  color: #563d7c;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.js {
+  color: #f1e05a;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.icon {
+  padding-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  color:black;
+}
+
+.icon:hover {
+  color:#008080;
 }

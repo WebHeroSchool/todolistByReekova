@@ -29,18 +29,11 @@ const Todo = () => {
         isDone: true,
         id: 4
       }
-    ]
+    ],
+    selectedMenuItem: 'all'
   };
 
   const [tasks, setTasks] = useState(initialState.tasks);
-
-  useEffect(() => {
-  		console.log('componentDidMount');
-  	}, []);
-
-  	useEffect(() => {
-  		console.log('componentDidUpdate');
-    });
 
   const onClickDone = id => {
     const newTasksList = tasks.map(task => {
@@ -70,10 +63,46 @@ const Todo = () => {
     setTasks(newTasksList);
   };
 
-  return (<CardContent>
-        <h1 className={styles.title}>Важные дела</h1>
+  const allTasks = initialState.tasks;
+  const completedTasks = initialState.tasks.filter(task => task.isDone === true);
+  const uncompletedTasks = initialState.tasks.filter(task => task.isDone === false);
+
+  let items;
+    switch (initialState.selectedMenuItem) {
+      case 'all':
+        items = allTasks;
+        break;
+      case 'completedTasks':
+        items = completedTasks;
+        break;
+      case 'uncompletedTasks':
+        items = uncompletedTasks;
+        break;
+      default:
+        items = allTasks;
+    };
+
+  return (
+  <CardContent>
+        <h2 className={styles.title}>Список моих дел</h2>
+        <div className={styles.wrapper_title}>
+          <span className={`${styles.title} ${styles.active}`}>Все дела</span>
+          <button
+                onClick={() => {
+                  setTasks({
+                    selectedMenuItem: 'uncompletedTasks',
+                  });
+                }} 
+                className={styles.title}>
+                  Незавершённые 
+                  <span>
+                    {uncompletedTasks.length}
+                  </span>
+                </button>
+          <span className={styles.title}>Завершенные</span>
+        </div>
         <InputItem onClickAdd={onClickAdd}/>
-        <ItemList tasks={tasks} onClickDone={onClickDone} onClickDelete={onClickDelete}/>
+        <ItemList tasks={tasks} onClickDone={onClickDone} onClickDelete={onClickDelete} selectedMenuItem={initialState.selectedMenuItem} />
         <Footer count={tasks.length}/>
       </CardContent>
   );
